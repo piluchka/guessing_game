@@ -112,6 +112,39 @@ class GuessingGame extends GuessingNumberHTMLCreation {
     super(containerSelector)
   }
 
+  createRules() {
+    const rulesContainer = document.createElement("div")
+    rulesContainer.className = "rules"
+    this.container.append(rulesContainer)
+
+    const title = document.createElement("h3")
+    title.innerText = "Game rules:"
+    rulesContainer.append(title)
+
+    const rulesList = document.createElement("ol")
+    rulesContainer.append(rulesList)
+
+    const firstRule = document.createElement("li")
+    firstRule.innerText = "Select a range and a number of attempts you let a computer have"
+    rulesList.append(firstRule)
+
+    const secondRule = document.createElement("li")
+    secondRule.innerText = "Now, choose a number in the selected range"
+    rulesList.append(secondRule)
+
+    const thirdRule = document.createElement("li")
+    thirdRule.innerText = "If a computer shows you a number greater than yours - press the 'down button'"
+    rulesList.append(thirdRule)
+
+    const forthRule = document.createElement("li")
+    forthRule.innerText = "If a computer shows you a number less than yours - press the 'up button'"
+    rulesList.append(forthRule)
+
+    const fifthRule = document.createElement("li")
+    fifthRule.innerText = "Press the 'Play again' button after a game and ENJOY again :)"
+    rulesList.append(fifthRule)
+  }
+
   getValuesFromInputs() {
     this.startValue = parseInt(this.startNumberInput.value)
     this.endValue = parseInt(this.endNumberInput.value)
@@ -177,6 +210,7 @@ class GuessingGame extends GuessingNumberHTMLCreation {
 
   render() {
     super.render()
+    this.createRules()
     this.getValuesFromInputs()
     this.createRangeInputsEvents()
     this.createAttemptInputEvent()
