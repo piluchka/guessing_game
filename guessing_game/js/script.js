@@ -141,8 +141,12 @@ class GuessingGame extends GuessingNumberHTMLCreation {
     rulesList.append(forthRule)
 
     const fifthRule = document.createElement("li")
-    fifthRule.innerText = "Press the 'Play again' button after a game and ENJOY again :)"
+    fifthRule.innerText = "If a computer guesses your number - press the 'check button'"
     rulesList.append(fifthRule)
+    
+    const sixthRule = document.createElement("li")
+    sixthRule.innerText = "Press the 'Play again' button after a game and ENJOY again :)"
+    rulesList.append(sixthRule)
   }
 
   getValuesFromInputs() {
