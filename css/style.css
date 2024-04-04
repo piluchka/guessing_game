@@ -1,0 +1,33 @@
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+#showArea {
+  font-size: 4em;
+  padding: 20px 0 20px 0;
+  margin: 0;
+}
+.range label {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.attempts label {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+}
+input {
+  width: 10%;
+}
