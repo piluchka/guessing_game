@@ -1,0 +1,119 @@
+@use "sass:math";
+
+// Reset
+@import "_reset.scss";
+// Fonts
+@import "_fonts.scss";
+// Functions
+@import "_functions.scss";
+
+// Container
+[class*="__container"] {
+  max-width: toREM(1230);
+  margin: 0 auto;
+  padding: 0 toREM(15);
+}
+
+// -----------------------------------------------------------------
+
+// body
+body {
+  background-color: #734475;
+  font-family: "Roboto", sans-serif;
+}
+// Wrapper
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: clip;
+
+  > main {
+    flex-grow: 1;
+  }
+}
+
+// Main page
+
+.page {
+  padding: toREM(100) toREM(0);
+
+  &__container {
+  }
+
+  &__content {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-bottom: toREM(50);
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-size: toREM(74);
+    color: #fff;
+    font-family: "Fjalla One", sans-serif;
+    line-height: 1.5;
+    letter-spacing: toREM(2);
+
+    &:not(:last-child) {
+      margin-bottom: toREM(80);
+    }
+
+    .color {
+      color: #ffde4c;
+      letter-spacing: toREM(10);
+    }
+  }
+
+  &__text {
+    max-width: toREM(900);
+    text-align: center;
+    line-height: 1.2;
+
+    font-size: toREM(24);
+
+    p {
+      &:not(:last-child) {
+        margin-bottom: toREM(20);
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: toREM(50);
+    }
+  }
+
+  &__activities {
+  }
+}
+.activities {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: toREM(50);
+  color: #fff;
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: toREM(20);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      max-width: toREM(200);
+    }
+  }
+
+  &__title {
+    font-size: toREM(22);
+    font-weight: 600;
+  }
+}
