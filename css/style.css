@@ -86,7 +86,6 @@ address {
 }
 
 body {
-  background-color: #734475;
   font-family: "Roboto", sans-serif;
 }
 
@@ -108,6 +107,7 @@ body {
 }
 
 .page {
+  background-color: #734475;
   padding: 6.25rem 0rem;
 }
 @media (max-width: 48em) {

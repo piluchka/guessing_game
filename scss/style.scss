@@ -18,7 +18,6 @@
 
 // body
 body {
-  background-color: #734475;
   font-family: "Roboto", sans-serif;
 }
 // Wrapper
@@ -36,6 +35,8 @@ body {
 // Main page
 
 .page {
+  background-color: #734475;
+
   padding: toREM(100) toREM(0);
 
   @media (max-width: toEM(768)) {

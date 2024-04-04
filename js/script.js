@@ -12,6 +12,7 @@ class GuessingNumberHTMLCreation {
 
     const fromLabel = document.createElement("label")
     fromLabel.innerText = "From "
+    fromLabel.setAttribute("for", "startNum")
     rangeContainer.append(fromLabel)
 
     const startNumberInput = document.createElement("input")
@@ -21,12 +22,9 @@ class GuessingNumberHTMLCreation {
     rangeContainer.append(startNumberInput)
     this.startNumberInput = startNumberInput
 
-    // const splitSymbol = document.createElement("span")
-    // splitSymbol.innerText = " - "
-    // label.append(splitSymbol)
-
     const toLabel = document.createElement("label")
-    toLabel.innerText = "From "
+    toLabel.innerText = "To "
+    toLabel.setAttribute("for", "endNum")
     rangeContainer.append(toLabel)
 
     const endNumberInput = document.createElement("input")
@@ -44,6 +42,7 @@ class GuessingNumberHTMLCreation {
 
     const label = document.createElement("label")
     label.innerText = "Attempts to guess "
+    label.setAttribute("for", "attemptsNum")
     attemptContainer.append(label)
 
     const attemptInput = document.createElement("input")
@@ -115,7 +114,7 @@ class GuessingGame extends GuessingNumberHTMLCreation {
   createRules() {
     const rulesContainer = document.createElement("div")
     rulesContainer.className = "rules"
-    this.container.append(rulesContainer)
+    this.container.parentElement.append(rulesContainer)
 
     const title = document.createElement("h3")
     title.innerText = "Game rules:"
