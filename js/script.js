@@ -219,5 +219,9 @@ class GuessingGame extends GuessingNumberHTMLCreation {
   }
 }
 
-let game = new GuessingGame("#container")
-game.render()
+const container = document.querySelector("#container")
+
+if (container) {
+  let game = new GuessingGame(container)
+  game.render()
+}
