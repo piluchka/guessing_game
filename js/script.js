@@ -1,100 +1,100 @@
 "use strict"
 
 class GuessingNumberHTMLCreation {
-  constructor(containerSelector) {
-    this.container = document.querySelector(containerSelector)
+  constructor(container) {
+    this.container = container
   }
 
   createRangeInputs() {
     const rangeContainer = document.createElement("div")
-    rangeContainer.className = "range"
+    rangeContainer.className = "game__range"
     this.container.append(rangeContainer)
 
-    const label = document.createElement("label")
-    label.innerText = "Range "
-    rangeContainer.append(label)
+    const fromLabel = document.createElement("label")
+    fromLabel.innerText = "From "
+    rangeContainer.append(fromLabel)
 
     const startNumberInput = document.createElement("input")
     startNumberInput.setAttribute("type", "number")
     startNumberInput.setAttribute("value", "1")
     startNumberInput.id = "startNum"
-    label.append(startNumberInput)
+    rangeContainer.append(startNumberInput)
     this.startNumberInput = startNumberInput
 
-    const splitSymbol = document.createElement("span")
-    splitSymbol.innerText = " - "
-    label.append(splitSymbol)
+    // const splitSymbol = document.createElement("span")
+    // splitSymbol.innerText = " - "
+    // label.append(splitSymbol)
+
+    const toLabel = document.createElement("label")
+    toLabel.innerText = "From "
+    rangeContainer.append(toLabel)
 
     const endNumberInput = document.createElement("input")
     endNumberInput.setAttribute("type", "number")
     endNumberInput.setAttribute("value", "100")
     endNumberInput.id = "endNum"
-    label.append(endNumberInput)
+    rangeContainer.append(endNumberInput)
     this.endNumberInput = endNumberInput
   }
 
   createAttemptsInput() {
     const attemptContainer = document.createElement("div")
-    attemptContainer.className = "attempts"
+    attemptContainer.className = "game__attemps"
     this.container.append(attemptContainer)
 
     const label = document.createElement("label")
-    label.innerText = "Attempts "
+    label.innerText = "Attempts to guess "
     attemptContainer.append(label)
 
     const attemptInput = document.createElement("input")
     attemptInput.setAttribute("type", "number")
     attemptInput.setAttribute("value", "5")
     attemptInput.id = "attemptsNum"
-    label.append(attemptInput)
+    attemptContainer.append(attemptInput)
 
     this.attempsInp = attemptInput
   }
 
   createShowArea() {
-    const showContainer = document.createElement("div")
-    showContainer.className = "showNumber"
-    this.container.append(showContainer)
-
-    const area = document.createElement("p")
-    area.id = "showArea"
-    showContainer.append(area)
-    this.showArea = area
+    const showArea = document.createElement("div")
+    showArea.className = "game__show"
+    showArea.id = "showArea"
+    this.container.append(showArea)
+    this.showArea = showArea
   }
 
   createPlayButtons() {
     const btnsContainer = document.createElement("div")
-    btnsContainer.className = "buttons"
+    btnsContainer.className = "game__buttons"
     this.container.append(btnsContainer)
 
     const upButton = document.createElement("button")
     upButton.innerText = "↑"
     upButton.id = "upButton"
+    upButton.className = "game__btn"
     btnsContainer.append(upButton)
     this.upButton = upButton
 
     const winButton = document.createElement("button")
     winButton.innerText = "✓"
     winButton.id = "winButton"
+    winButton.className = "game__btn"
     btnsContainer.append(winButton)
     this.winButton = winButton
 
     const downButton = document.createElement("button")
     downButton.innerText = "↓"
     downButton.id = "downButton"
+    downButton.className = "game__btn"
     btnsContainer.append(downButton)
     this.downButton = downButton
   }
 
   createPlayAgainButton() {
-    const playAgainBtnContainer = document.createElement("div")
-    playAgainBtnContainer.className = "playAgain"
-    this.container.append(playAgainBtnContainer)
-
     const playAgainButton = document.createElement("button")
     playAgainButton.innerText = "Play again"
-    playAgainBtnContainer.append(playAgainButton)
-
+    playAgainButton.className = "game__play-again"
+    this.container.append(playAgainButton)
     this.playAgainBtn = playAgainButton
   }
 
@@ -219,7 +219,7 @@ class GuessingGame extends GuessingNumberHTMLCreation {
   }
 }
 
-const container = document.querySelector("#container")
+const container = document.querySelector(".game")
 
 if (container) {
   let game = new GuessingGame(container)
