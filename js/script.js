@@ -109,6 +109,7 @@ class GuessingNumberHTMLCreation {
     img.src = "../img/wizard.png"
     img.alt = "wizard"
     img.className = "game__image"
+    this.wizardImage = img
     this.container.append(img)
   }
 
@@ -124,9 +125,10 @@ class GuessingNumberHTMLCreation {
 }
 
 class GuessingGame extends GuessingNumberHTMLCreation {
-  constructor(containerSelector, rulesList) {
+  constructor(containerSelector, rulesList, imagePaths) {
     super(containerSelector)
     this.rulesList = rulesList
+    this.imagePaths = imagePaths
   }
 
   createRules() {
@@ -175,21 +177,26 @@ class GuessingGame extends GuessingNumberHTMLCreation {
     this.upButton.onclick = () => {
       this.startValue = this.randomNum + 1
       this.attemptsAmount--
+      this.wizardImage.src = this.imagePaths[this.getRandomNumInRange(0, this.imagePaths.length - 1)]
       this.gameLogic()
     }
     this.downButton.onclick = () => {
       this.endValue = this.randomNum - 1
       this.attemptsAmount--
+      this.wizardImage.src = this.imagePaths[this.getRandomNumInRange(0, this.imagePaths.length - 1)]
       this.gameLogic()
     }
     this.winButton.onclick = () => {
       this.showArea.innerText = "A computer has won!"
+      this.wizardImage.src = "../img/wizard.png"
       this.attemptsAmount = 0
     }
     this.playAgainBtn.onclick = () => {
       this.attemptsAmount = parseInt(this.attempsInp.value)
       this.startValue = parseInt(this.startNumberInput.value)
       this.endValue = parseInt(this.endNumberInput.value)
+
+      this.wizardImage.src = "../img/wizard.png"
 
       this.gameLogic()
     }
@@ -203,11 +210,17 @@ class GuessingGame extends GuessingNumberHTMLCreation {
     this.randomNum = this.getRandomNumInRange(this.startValue, this.endValue)
     this.showArea.innerText = this.randomNum
 
-    if (isNaN(this.randomNum)) this.showArea.innerText = "Selecting a number..."
-    if (this.startValue > this.endValue)
+    if (isNaN(this.randomNum)) {
+      this.showArea.innerText = "Selecting a number..."
+      this.wizardImage.src = "../img/wizard.png"
+    }
+    if (this.startValue > this.endValue) {
       this.showArea.innerText = "The start of the range should be less than the end of the range"
+      this.wizardImage.src = "../img/wizard.png"
+    }
     if (this.attemptsAmount < 0) {
       this.showArea.innerText = "A computer has lost :("
+      this.wizardImage.src = "../img/wizard_sad.png"
     }
   }
 
@@ -230,9 +243,16 @@ const rulesList = [
   "Press the 'Play again' button after a game and ENJOY again :)",
 ]
 
+const imagePaths = [
+  "../img/wizard_thinking.png",
+  "../img/wizard_glad.png",
+  "../img/wizard_shock.png",
+  "../img/wizard_sad.png",
+]
+
 const container = document.querySelector(".game")
 
 if (container) {
-  let game = new GuessingGame(container, rulesList)
+  let game = new GuessingGame(container, rulesList, imagePaths)
   game.render()
 }
