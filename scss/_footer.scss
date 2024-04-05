@@ -1,0 +1,43 @@
+.footer {
+  background-color: #c37fb3;
+  padding: toREM(30) toREM(0);
+
+  &__container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__button {
+    color: #fff;
+    font-size: toREM(20);
+    padding: toREM(20);
+    border-radius: toREM(20);
+    background-color: #734475;
+    transition: all 0.3s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: rgba(115, 68, 117, 0.5);
+      }
+    }
+  }
+
+  &__me {
+    color: rgba(255, 255, 255, 0.548);
+    font-size: toREM(16);
+    letter-spacing: toREM(1);
+
+    a {
+      color: rgb(37, 37, 37);
+      font-weight: 700;
+      transition: all 0.3s;
+
+      @media (any-hover: hover) {
+        &:hover {
+          color: rgba(37, 37, 37, 0.5);
+        }
+      }
+    }
+  }
+}

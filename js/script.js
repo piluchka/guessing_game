@@ -5,10 +5,17 @@ class GuessingNumberHTMLCreation {
     this.container = container
   }
 
+  createGameCoverDiv() {
+    const gameCoverDiv = document.createElement("div")
+    gameCoverDiv.className = "game__cover"
+    this.gameCoverDiv = gameCoverDiv
+    this.container.append(gameCoverDiv)
+  }
+
   createRangeInputs() {
     const rangeContainer = document.createElement("div")
     rangeContainer.className = "game__range"
-    this.container.append(rangeContainer)
+    this.gameCoverDiv.append(rangeContainer)
 
     const fromLabel = document.createElement("label")
     fromLabel.innerText = "From "
@@ -38,7 +45,7 @@ class GuessingNumberHTMLCreation {
   createAttemptsInput() {
     const attemptContainer = document.createElement("div")
     attemptContainer.className = "game__attemps"
-    this.container.append(attemptContainer)
+    this.gameCoverDiv.append(attemptContainer)
 
     const label = document.createElement("label")
     label.innerText = "Attempts to guess "
@@ -58,14 +65,14 @@ class GuessingNumberHTMLCreation {
     const showArea = document.createElement("div")
     showArea.className = "game__show"
     showArea.id = "showArea"
-    this.container.append(showArea)
+    this.gameCoverDiv.append(showArea)
     this.showArea = showArea
   }
 
   createPlayButtons() {
     const btnsContainer = document.createElement("div")
     btnsContainer.className = "game__buttons"
-    this.container.append(btnsContainer)
+    this.gameCoverDiv.append(btnsContainer)
 
     const upButton = document.createElement("button")
     upButton.innerText = "↑"
@@ -93,22 +100,33 @@ class GuessingNumberHTMLCreation {
     const playAgainButton = document.createElement("button")
     playAgainButton.innerText = "Play again"
     playAgainButton.className = "game__play-again"
-    this.container.append(playAgainButton)
+    this.gameCoverDiv.append(playAgainButton)
     this.playAgainBtn = playAgainButton
   }
 
+  createWizardImage() {
+    const img = document.createElement("img")
+    img.src = "../img/wizard.png"
+    img.alt = "wizard"
+    img.className = "game__image"
+    this.container.append(img)
+  }
+
   render() {
+    this.createGameCoverDiv()
     this.createRangeInputs()
     this.createAttemptsInput()
     this.createShowArea()
     this.createPlayButtons()
     this.createPlayAgainButton()
+    this.createWizardImage()
   }
 }
 
 class GuessingGame extends GuessingNumberHTMLCreation {
-  constructor(containerSelector) {
+  constructor(containerSelector, rulesList) {
     super(containerSelector)
+    this.rulesList = rulesList
   }
 
   createRules() {
@@ -120,28 +138,14 @@ class GuessingGame extends GuessingNumberHTMLCreation {
     title.innerText = "Game rules:"
     rulesContainer.append(title)
 
-    const rulesList = document.createElement("ol")
-    rulesContainer.append(rulesList)
+    const rules = document.createElement("ol")
+    rulesContainer.append(rules)
 
-    const firstRule = document.createElement("li")
-    firstRule.innerText = "Select a range and a number of attempts you let a computer have"
-    rulesList.append(firstRule)
-
-    const secondRule = document.createElement("li")
-    secondRule.innerText = "Now, choose a number in the selected range"
-    rulesList.append(secondRule)
-
-    const thirdRule = document.createElement("li")
-    thirdRule.innerText = "If a computer shows you a number greater than yours - press the 'down button'"
-    rulesList.append(thirdRule)
-
-    const forthRule = document.createElement("li")
-    forthRule.innerText = "If a computer shows you a number less than yours - press the 'up button'"
-    rulesList.append(forthRule)
-
-    const fifthRule = document.createElement("li")
-    fifthRule.innerText = "Press the 'Play again' button after a game and ENJOY again :)"
-    rulesList.append(fifthRule)
+    for (let i = 0; i < this.rulesList.length; i++) {
+      const li = document.createElement("li")
+      li.innerText = `${i + 1}. ${this.rulesList[i]}`
+      rules.append(li)
+    }
   }
 
   getValuesFromInputs() {
@@ -218,9 +222,17 @@ class GuessingGame extends GuessingNumberHTMLCreation {
   }
 }
 
+const rulesList = [
+  "Select a range and a number of attempts you let a computer to have",
+  "Now, guess a number in the selected range",
+  "If a computer shows you a number greater than yours - press the 'down button'",
+  "If a computer shows you a number less than yours - press the 'up button'",
+  "Press the 'Play again' button after a game and ENJOY again :)",
+]
+
 const container = document.querySelector(".game")
 
 if (container) {
-  let game = new GuessingGame(container)
+  let game = new GuessingGame(container, rulesList)
   game.render()
 }

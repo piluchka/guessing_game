@@ -7,6 +7,13 @@
 // Functions
 @import "_functions.scss";
 
+// Footer
+@import "_footer.scss";
+
+// Pages
+// Guessing
+@import "guessing.scss";
+
 // Container
 [class*="__container"] {
   max-width: toREM(1230);

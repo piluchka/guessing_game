@@ -68,6 +68,7 @@ option {
 input[type=text],
 input[type=email],
 input[type=tel],
+input[type=number],
 textarea,
 select {
   -webkit-appearance: none;
@@ -75,8 +76,294 @@ select {
   appearance: none;
 }
 
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type=number],
+input[type=number]:hover,
+input[type=number]:focus {
+  -webkit-appearance: none;
+          appearance: none;
+  -moz-appearance: textfield;
+}
+
 address {
   font-style: normal;
+}
+
+.footer {
+  background-color: #c37fb3;
+  padding: 1.875rem 0rem;
+}
+.footer__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.footer__button {
+  color: #fff;
+  font-size: 1.25rem;
+  padding: 1.25rem;
+  border-radius: 1.25rem;
+  background-color: #734475;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+@media (any-hover: hover) {
+  .footer__button:hover {
+    background-color: rgba(115, 68, 117, 0.5);
+  }
+}
+.footer__me {
+  color: rgba(255, 255, 255, 0.548);
+  font-size: 1rem;
+  letter-spacing: 0.0625rem;
+}
+.footer__me a {
+  color: rgb(37, 37, 37);
+  font-weight: 700;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+@media (any-hover: hover) {
+  .footer__me a:hover {
+    color: rgba(37, 37, 37, 0.5);
+  }
+}
+
+.page-game {
+  background-color: #905893;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 3.125rem 0rem;
+}
+@media (max-width: 26.5625em) {
+  .page-game {
+    padding: 1.25rem 0rem;
+  }
+}
+.game {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1.25rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.game:not(:last-child) {
+  margin-bottom: 1.875rem;
+}
+.game__cover {
+  color: #522b5d;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  background-color: rgba(255, 255, 255, 0.37);
+  padding: 1.875rem 3.125rem;
+}
+@media (max-width: 23.4375em) {
+  .game__cover {
+    padding: 1.875rem 1.25rem;
+  }
+}
+.game__range:not(:last-child) {
+  margin-bottom: 0.625rem;
+}
+.game__range, .game__attemps {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.625rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+@media (max-width: 27.4375em) {
+  .game__range, .game__attemps {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+.game__range label, .game__attemps label {
+  font-size: 1.375rem;
+}
+.game__range input, .game__attemps input {
+  max-width: 6.25rem;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 2rem;
+  text-align: center;
+}
+.game__range input:focus, .game__attemps input:focus {
+  outline: 0.125rem solid #ddbbd8;
+  border-radius: 0.625rem;
+}
+.game__attemps:not(:last-child) {
+  margin-bottom: 3.125rem;
+}
+@media (max-width: 27.4375em) {
+  .game__attemps:not(:last-child) {
+    margin-bottom: 1.875rem;
+  }
+}
+.game__attemps label {
+  font-size: 1.125rem;
+}
+.game__attemps input {
+  max-width: 6.25rem;
+  background-color: transparent;
+  color: #fff;
+  font-size: 2rem;
+}
+.game__show {
+  font-size: 3.125rem;
+  color: #000;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.363);
+  padding: 1.25rem;
+}
+@media (max-width: 38.75em) {
+  .game__show {
+    font-size: 2.5rem;
+  }
+}
+.game__show:not(:last-child) {
+  margin-bottom: 3.125rem;
+}
+.game__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1.25rem;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  font-size: 2.1875rem;
+}
+@media (max-width: 38.75em) {
+  .game__buttons {
+    font-size: 1.875rem;
+  }
+}
+.game__buttons:not(:last-child) {
+  margin-bottom: 1.875rem;
+}
+.game__btn, .game__play-again {
+  color: #fff;
+  background-color: rgba(144, 88, 147, 0.24);
+  padding: 1.25rem;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.game__btn:hover, .game__play-again:hover {
+  background-color: rgba(144, 88, 147, 0.5);
+}
+.game__btn {
+  width: 4.375rem;
+  height: 4.375rem;
+  text-align: center;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+@media (max-width: 38.75em) {
+  .game__btn {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+}
+.game__play-again {
+  border-radius: 0.625rem;
+  font-size: 1.375rem;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+}
+.game__image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-width: 18.75rem;
+}
+.game__image:not(:last-child) {
+  margin-bottom: 1.25rem;
+}
+
+.rules {
+  color: #fff;
+}
+.rules h3 {
+  font-size: 1.875rem;
+}
+.rules h3:not(:last-child) {
+  margin-bottom: 1.25rem;
+}
+.rules ol {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 0.625rem;
+}
+.rules li {
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+#winButton {
+  color: rgb(99, 221, 99);
 }
 
 [class*=__container] {
