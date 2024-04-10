@@ -311,7 +311,7 @@ const paths = [
 ]
 
 // Dice throw logic
-function diceGameLogic(paths) {
+function diceGameLogic(paths, speed = 3000) {
   const pathsArr = document.getElementsByClassName("path")
   if (pathsArr.length) {
     for (let i = 0; i < pathsArr.length; i++) {
@@ -320,7 +320,7 @@ function diceGameLogic(paths) {
         const randomPath = paths[randomPathIndex]
         pathsArr[i].setAttribute("d", randomPath)
       }, 100)
-      setTimeout(() => clearInterval(intervalID), 2000)
+      setTimeout(() => clearInterval(intervalID), speed)
     }
   }
 }
@@ -332,4 +332,11 @@ if (diceBtn) {
   diceBtn.addEventListener("click", () => {
     diceGameLogic(paths)
   })
+}
+
+// Throw dice fast event
+const fastThrowBtn = document.getElementById("fastThrow")
+
+if (fastThrowBtn) {
+  fastThrowBtn.addEventListener("click", () => diceGameLogic(paths, 1000))
 }
