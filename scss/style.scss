@@ -12,7 +12,8 @@
 
 // Pages
 // Guessing
-@import "guessing.scss";
+@import "_guessing.scss";
+@import "_dice.scss";
 
 // Container
 [class*="__container"] {

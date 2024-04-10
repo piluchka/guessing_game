@@ -154,6 +154,7 @@ address {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 3.125rem 0rem;
+  min-height: 100svh;
 }
 @media (max-width: 26.5625em) {
   .page-game {
@@ -366,6 +367,55 @@ address {
   color: rgb(99, 221, 99);
 }
 
+.dice-page {
+  background-color: rgb(163, 215, 238);
+  padding: 3.125rem 0rem;
+}
+@media (max-width: 26.5625em) {
+  .dice-page {
+    padding: 1.25rem 0rem;
+  }
+}
+.dice-page__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dice {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  align-self: stretch;
+  text-align: center;
+  gap: 1.875rem;
+}
+@media (max-width: 28.8125em) {
+  .dice {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+.dice svg {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-width: 37.5rem;
+}
+@media (max-width: 28.8125em) {
+  .dice svg {
+    max-width: 11.25rem;
+  }
+}
 [class*=__container] {
   max-width: 76.875rem;
   margin: 0 auto;
