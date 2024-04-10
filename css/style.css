@@ -390,12 +390,38 @@ address {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: 3.125rem;
+}
+
+.play-settings {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  gap: 1.25rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.play-settings__button {
+  color: #fff;
+  background-color: #3a3d7a;
+  padding: 1.25rem;
+  font-size: 1.25rem;
+  border-radius: 1.25rem;
 }
 
 .dice {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   align-self: stretch;
+  justify-items: center;
   text-align: center;
   gap: 1.875rem;
 }
@@ -409,13 +435,21 @@ address {
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
-  max-width: 37.5rem;
+  max-width: 25rem;
 }
 @media (max-width: 28.8125em) {
   .dice svg {
     max-width: 11.25rem;
   }
 }
+.dice__button {
+  color: #fff;
+  background-color: #d3d55a;
+  padding: 1.25rem;
+  font-size: 2.5rem;
+  border-radius: 1.25rem;
+}
+
 [class*=__container] {
   max-width: 76.875rem;
   margin: 0 auto;

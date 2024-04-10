@@ -259,6 +259,31 @@ if (container) {
 }
 
 // Dice logic
+
+const diceCont = document.querySelector(".dice")
+const addBtn = document.getElementById("addDice")
+
+if (diceCont && addBtn) {
+  addBtn.addEventListener("click", () => addDice(diceCont))
+}
+
+function addDice(diceCont) {
+  const dice = document.createElementNS("http://www.w3.org/2000/svg", "svg")
+  dice.setAttributeNS(null, "fill", "#fff")
+  dice.setAttributeNS(null, "viewBox", "0 0 16 16")
+
+  const dicePath = document.createElementNS("http://www.w3.org/2000/svg", "path")
+  dicePath.classList.add("path")
+  dicePath.setAttributeNS(
+    null,
+    "d",
+    "M3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3H3zm5 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+  )
+  dice.append(dicePath)
+
+  diceCont.append(dice)
+}
+
 const paths = [
   "M3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3H3zm5 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z",
   "M0 3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3zm5.5 1a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0zm6.5 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z",
@@ -268,18 +293,22 @@ const paths = [
   "M3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3H3zm1 5.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm8 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm1.5 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM12 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM5.5 12a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM4 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z",
 ]
 
+// Dice throw logic
 function diceGameLogic(paths) {
-  const pathAtr = document.getElementById("path")
-  if (pathAtr) {
-    const intervalID = setInterval(() => {
-      const randomPathIndex = Math.floor(Math.random() * paths.length)
-      const randomPath = paths[randomPathIndex]
-      pathAtr.setAttribute("d", randomPath)
-    }, 100)
-    setTimeout(() => clearInterval(intervalID), 3000)
+  const pathsArr = document.getElementsByClassName("path")
+  if (pathsArr.length) {
+    for (let i = 0; i < pathsArr.length; i++) {
+      const intervalID = setInterval(() => {
+        const randomPathIndex = Math.floor(Math.random() * paths.length)
+        const randomPath = paths[randomPathIndex]
+        pathsArr[i].setAttribute("d", randomPath)
+      }, 100)
+      setTimeout(() => clearInterval(intervalID), 2000)
+    }
   }
 }
 
+// Throw dice event
 const diceBtn = document.querySelector(".dice__button")
 
 if (diceBtn) {
