@@ -259,8 +259,9 @@ if (container) {
 }
 
 // Dice logic
-
 const diceCont = document.querySelector(".dice")
+
+// Adding dices
 const addBtn = document.getElementById("addDice")
 
 if (diceCont && addBtn) {
@@ -282,6 +283,22 @@ function addDice(diceCont) {
   dice.append(dicePath)
 
   diceCont.append(dice)
+}
+
+// Removing dices
+const removeBtn = document.getElementById("removeDice")
+
+if (diceCont && removeBtn) {
+  removeBtn.addEventListener("click", () => removeDice(diceCont))
+}
+
+function removeDice(diceCont) {
+  const diceChildrendArr = diceCont.children
+  if (diceChildrendArr.length <= 1) {
+    return
+  }
+
+  diceCont.removeChild(diceCont.lastElementChild)
 }
 
 const paths = [
