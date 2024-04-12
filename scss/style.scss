@@ -46,11 +46,7 @@ body {
   background-color: #734475;
   min-height: 100svh;
 
-  padding: toREM(100) toREM(0);
-
-  @media (max-width: toEM(768)) {
-    padding: toREM(50) toREM(0);
-  }
+  padding: toREM(50) toREM(0);
 
   &__container {
   }

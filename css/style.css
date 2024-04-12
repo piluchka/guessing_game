@@ -494,12 +494,7 @@ body {
 .page {
   background-color: #734475;
   min-height: 100svh;
-  padding: 6.25rem 0rem;
-}
-@media (max-width: 48em) {
-  .page {
-    padding: 3.125rem 0rem;
-  }
+  padding: 3.125rem 0rem;
 }
 .page__content {
   color: #fff;
