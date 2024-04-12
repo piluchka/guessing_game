@@ -258,6 +258,8 @@ if (container) {
   game.render()
 }
 
+// ----------------------------------------------------
+
 // Dice logic
 const diceCont = document.querySelector(".dice")
 
@@ -269,20 +271,22 @@ if (diceCont && addBtn) {
 }
 
 function addDice(diceCont) {
-  const dice = document.createElementNS("http://www.w3.org/2000/svg", "svg")
-  dice.setAttributeNS(null, "fill", "#fff")
-  dice.setAttributeNS(null, "viewBox", "0 0 16 16")
+  if (diceCont.children.length < 20) {
+    const dice = document.createElementNS("http://www.w3.org/2000/svg", "svg")
+    dice.setAttributeNS(null, "fill", "#fff")
+    dice.setAttributeNS(null, "viewBox", "0 0 16 16")
 
-  const dicePath = document.createElementNS("http://www.w3.org/2000/svg", "path")
-  dicePath.classList.add("path")
-  dicePath.setAttributeNS(
-    null,
-    "d",
-    "M3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3H3zm5 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-  )
-  dice.append(dicePath)
+    const dicePath = document.createElementNS("http://www.w3.org/2000/svg", "path")
+    dicePath.classList.add("path")
+    dicePath.setAttributeNS(
+      null,
+      "d",
+      "M3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3H3zm5 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+    )
+    dice.append(dicePath)
 
-  diceCont.append(dice)
+    diceCont.append(dice)
+  }
 }
 
 // Removing dices

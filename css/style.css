@@ -103,6 +103,9 @@ address {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 1.25rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -370,6 +373,7 @@ address {
 .dice-page {
   background-color: rgb(163, 215, 238);
   padding: 3.125rem 0rem;
+  min-height: 100svh;
 }
 @media (max-width: 26.5625em) {
   .dice-page {
@@ -418,6 +422,9 @@ address {
 }
 
 .dice {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   align-self: stretch;
@@ -448,6 +455,13 @@ address {
   padding: 1.25rem;
   font-size: 2.5rem;
   border-radius: 1.25rem;
+}
+@media (max-width: 26.5625em) {
+  .dice__button {
+    font-size: 2.125rem;
+    -ms-flex-item-align: stretch;
+        align-self: stretch;
+  }
 }
 
 [class*=__container] {
