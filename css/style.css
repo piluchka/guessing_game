@@ -464,6 +464,188 @@ address {
   }
 }
 
+.boring-page {
+  padding: 3.125rem 0rem;
+  background-color: #ffd6a4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100svh;
+}
+.boring-page__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 5.625rem;
+}
+.boring-page__title {
+  font-size: 3.125rem;
+  text-align: center;
+  font-weight: 800;
+  color: #694314;
+}
+
+.boring {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  max-width: 56.375rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 6.25rem;
+}
+.boring__active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 5rem;
+}
+.boring__title {
+  font-size: 1.625rem;
+  position: relative;
+  font-weight: 700;
+  color: #494e70;
+}
+.boring__title::after {
+  content: "";
+  width: 6.25rem;
+  height: 6.25rem;
+  background: url("../img/curve-arrow.svg") no-repeat center/cover;
+  -webkit-transform: rotate(-50deg);
+      -ms-transform: rotate(-50deg);
+          transform: rotate(-50deg);
+  position: absolute;
+  top: 50%;
+  left: 80%;
+}
+.boring__button {
+  padding: 0.625rem 1.875rem;
+  font-size: 1.875rem;
+  background-color: #71a1ef;
+  border-radius: 0.9375rem;
+  color: #fff;
+  -webkit-box-shadow: 2px 3px 1px black;
+          box-shadow: 2px 3px 1px black;
+}
+@media (any-hover: hover) {
+  .boring__button:hover {
+    background-color: #6b99e3;
+  }
+}
+.boring__button:active {
+  -webkit-transform: translate(2px, 3px);
+      -ms-transform: translate(2px, 3px);
+          transform: translate(2px, 3px);
+  -webkit-box-shadow: 1px 1px 1px black;
+          box-shadow: 1px 1px 1px black;
+}
+.result-boring {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1.25rem;
+}
+.result-boring__title {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+.result-boring__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1.5625rem;
+}
+.result-boring__item {
+  font-size: 1.625rem;
+}
+.result-boring__item span {
+  font-weight: 500;
+}
+
+#b-type {
+  color: #e76224;
+}
+
+#b-part {
+  color: #3e9409;
+}
+
+#b-acc {
+  color: #e4426a;
+}
+
+.filter-bored__title {
+  font-size: 2rem;
+  text-align: center;
+  text-decoration: underline;
+}
+.filter-bored__title:not(:last-child) {
+  margin-bottom: 3.125rem;
+}
+.filter-bored__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  gap: 1.25rem;
+}
+.filter-bored__participants .selection-boring__title {
+  color: #3e9409;
+}
+.filter-bored__types .selection-boring__title {
+  color: #e76224;
+}
+.filter-bored__accessibility .selection-boring__title {
+  color: #e4426a;
+}
+
+.selection-boring {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.4375rem;
+}
+.selection-boring__title {
+  font-size: 1.375rem;
+  font-weight: 500;
+}
+.selection-boring__title:not(:last-child) {
+  margin-bottom: 0.625rem;
+}
 [class*=__container] {
   max-width: 76.875rem;
   margin: 0 auto;

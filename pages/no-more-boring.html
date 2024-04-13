@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="../css/style.css">
+   <script defer src="../js/script.js"></script>
+   <title>No More Boring Life! - get an activity you would like to do</title>
+</head>
+
+<body>
+   <div class="wrapper">
+      <main class="boring-page">
+         <div class="boring-page__container">
+            <h1 class="boring-page__title">You're bored and don't know what to do?</h1>
+            <div class="boring">
+               <div class="boring__active">
+                  <div class="boring__title">Let's find out!</div>
+                  <button class="boring__button">Click!</button>
+               </div>
+               <div class="boring__result result-boring">
+                  <h3 class="result-boring__title" id="b-result">Something like an act</h3>
+                  <ul class="result-boring__list">
+                     <li class="result-boring__item">type: <span id="b-type"></span> </li>
+                     <li class="result-boring__item">participants: <span id="b-part"></span></li>
+                     <li class="result-boring__item">accessibility: <span id="b-acc"></span></li>
+                  </ul>
+               </div>
+            </div>
+            <div class="filter-bored">
+               <h3 class="filter-bored__title">Activity filter</h3>
+               <div class="filter-bored__inner">
+                  <div class="filter-bored__types selection-boring">
+                     <h5 class="selection-boring__title">Type selection</h5>
+                     <div class="selection-boring__option">
+                        <input data-s-type type="checkbox" name="education" id="t-education">
+                        <label for="t-education">Education</label>
+                     </div>
+                     <div class="selection-boring__option">
+                        <input data-s-type type="checkbox" name="recreational" id="t-recreational">
+                        <label for="t-recreational">Recreational</label>
+                     </div>
+                     <div class="selection-boring__option">
+                        <input data-s-type type="checkbox" name="social" id="t-social">
+                        <label for="t-social">Social</label>
+                     </div>
+                     <div class="selection-boring__option">
+                        <input data-s-type type="checkbox" name="diy" id="t-diy">
+                        <label for="t-diy">DIY</label>
+                     </div>
+                     <div class="selection-boring__option">
+                        <input data-s-type type="checkbox" name="charity" id="t-charity">
+                        <label for="t-charity">Charity</label>
+                     </div>
+                     <div class="selection-boring__option">
+                        <input data-s-type type="checkbox" name="cooking" id="t-cooking">
+                        <label for="t-cooking">Cooking</label>
+                     </div>
+                     <div class="selection-boring__option">
+                        <input data-s-type type="checkbox" name="relaxation" id="t-relaxation">
+                        <label for="t-relaxation">Relaxation</label>
+                     </div>
+                     <div class="selection-boring__option">
+                        <input data-s-type type="checkbox" name="music" id="t-music">
+                        <label for="t-music">Music</label>
+                     </div>
+                     <div class="selection-boring__option">
+                        <input data-s-type type="checkbox" name="busywork" id="t-busywork">
+                        <label for="t-busywork">Busywork</label>
+                     </div>
+                  </div>
+                  <div class="filter-bored__participants selection-boring">
+                     <h5 class="selection-boring__title">Participants number</h5>
+                     <div class="selection-boring__option">
+                        <input data-s-part="1" type="radio" name="participants" id="participantOne">
+                        <label for="participantOne">Only 1 participant</label>
+                     </div>
+                     <div class="selection-boring__option">
+                        <input data-s-part="2" type="radio" name="participants" id="participantsTwo">
+                        <label for="participantsTwo">Only 2 participants</label>
+                     </div>
+                     <div class="selection-boring__option">
+                        <input data-s-part="3" type="radio" name="participants" id="participantsMore">
+                        <label for="participantsMore">Only 3 participants</label>
+                     </div>
+                     <div class="selection-boring__option">
+                        <input data-s-part="0" type="radio" name="participants" id="participantsAny">
+                        <label for="participantsAny">Any amount of participants</label>
+                     </div>
+                  </div>
+                  <div class="filter-bored__accessibility selection-boring">
+                     <h5 class="selection-boring__title">Accessibility level</h5>
+                     <div class="selection-boring__option">
+                        <input data-s-acc="high" type="radio" name="accessibility" id="a-high">
+                        <label for="a-high">High</label>
+                     </div>
+                     <div class="selection-boring__option">
+                        <input data-s-acc="medium" type="radio" name="accessibility" id="a-medium">
+                        <label for="a-medium">Medium</label>
+                     </div>
+                     <div class="selection-boring__option">
+                        <input data-s-acc="low" type="radio" name="accessibility" id="a-low">
+                        <label for="a-low">Low</label>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </main>
+      <footer class="footer">
+         <div class="footer__container">
+            <a href="../index.html" class="footer__button">Get back</a>
+            <div class="footer__me">Made by <a target="_blank" href="https://github.com/piluchka">Valeria Angelova</a>
+            </div>
+         </div>
+      </footer>
+   </div>
+</body>
+
+</html>

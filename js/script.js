@@ -344,3 +344,94 @@ const fastThrowBtn = document.getElementById("fastThrow")
 if (fastThrowBtn) {
   fastThrowBtn.addEventListener("click", () => diceGameLogic(paths, 1000))
 }
+
+// Boring logic
+
+const site = "http://www.boredapi.com/api/activity?"
+
+async function getInfo(site) {
+  // все равно добавить try catch для обработки ошибок
+  const API_URL = getSelectedOptions(site)
+  const response = await fetch(API_URL)
+  if (response.ok) {
+    const data = await response.json()
+    if (data.error) {
+      errorHandler(data.error)
+      return
+    } else {
+      console.log(data)
+      bundingData(data)
+    }
+  }
+}
+
+function bundingData(data) {
+  const typeSpan = document.getElementById("b-type")
+  const partSpan = document.getElementById("b-part")
+  const accSpan = document.getElementById("b-acc")
+  const actSpan = document.getElementById("b-result")
+
+  actSpan.innerText = data.activity
+  typeSpan.innerText = data.type
+  partSpan.innerText = data.participants
+  accSpan.innerText = accessibilityHandler(data.accessibility)
+}
+
+function accessibilityHandler(accessibility) {
+  let result
+
+  if (accessibility <= 0.3) {
+    result = "high"
+  } else if (accessibility <= 0.6) {
+    result = "medium"
+  } else {
+    result = "low"
+  }
+
+  return result
+}
+
+function getSelectedOptions(site) {
+  let newSite = site
+
+  const typeInpNodeList = document.querySelectorAll("[data-s-type]")
+  for (const input of typeInpNodeList) {
+    if (input.checked) {
+      newSite += `type=${input.name}&`
+    }
+  }
+
+  const partInpNodeList = document.querySelectorAll("[data-s-part]")
+  for (const input of partInpNodeList) {
+    if (input.checked && parseInt(input.getAttribute("data-s-part")) > 0) {
+      newSite += `participants=${parseInt(input.getAttribute("data-s-part"))}&`
+    }
+  }
+
+  const accInpNodeList = document.querySelectorAll("[data-s-acc]")
+  for (const input of accInpNodeList) {
+    if (input.checked) {
+      const inputValue = input.getAttribute("data-s-acc")
+      if (inputValue === "high") {
+        newSite += "minaccessibility=0&maxaccessibility=0.3&"
+      } else if (inputValue === "medium") {
+        newSite += "minaccessibility=0.4&maxaccessibility=0.6&"
+      } else {
+        newSite += "minaccessibility=0.7&maxaccessibility=1&"
+      }
+    }
+  }
+  return newSite
+}
+
+function errorHandler(error) {
+  // Добавить сюда анимку, чтобы было понятно
+  // Что это ошибка
+  const display = document.querySelector("#b-result")
+  display.innerText = error
+}
+
+const boringBtn = document.querySelector(".boring__button")
+if (boringBtn) {
+  boringBtn.addEventListener("click", async () => await getInfo(site))
+}
