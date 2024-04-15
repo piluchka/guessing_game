@@ -350,18 +350,23 @@ if (fastThrowBtn) {
 const site = "http://www.boredapi.com/api/activity?"
 
 async function getInfo(site) {
-  // все равно добавить try catch для обработки ошибок
-  const API_URL = getSelectedOptions(site)
-  const response = await fetch(API_URL)
-  if (response.ok) {
-    const data = await response.json()
-    if (data.error) {
-      errorHandler(data.error)
-      return
-    } else {
-      console.log(data)
-      bundingData(data)
+  try {
+    const API_URL = getSelectedOptions(site)
+    const response = await fetch(API_URL)
+    if (response.ok) {
+      const data = await response.json()
+      if (data.error) {
+        findingErrorHandler(data.error)
+        return
+      } else {
+        bundingData(data)
+      }
     }
+  } catch (err) {
+    const display = document.querySelector("#b-result")
+    display.innerText = "Sorry, something went wrong"
+
+    console.error(err)
   }
 }
 
@@ -389,6 +394,24 @@ function accessibilityHandler(accessibility) {
   }
 
   return result
+}
+
+function findingErrorHandler(error) {
+  const display = document.querySelector("#b-result")
+  display.innerText = error
+  display.classList.add("b-result-error")
+  setTimeout(() => {
+    display.classList.remove("b-result-error")
+  }, 2000)
+
+  const typeSpan = document.querySelector("#b-type")
+  typeSpan.innerText = "-"
+
+  const partSpan = document.querySelector("#b-part")
+  partSpan.innerText = "-"
+
+  const accSpan = document.querySelector("#b-acc")
+  accSpan.innerText = "-"
 }
 
 function getSelectedOptions(site) {
@@ -422,13 +445,6 @@ function getSelectedOptions(site) {
     }
   }
   return newSite
-}
-
-function errorHandler(error) {
-  // Добавить сюда анимку, чтобы было понятно
-  // Что это ошибка
-  const display = document.querySelector("#b-result")
-  display.innerText = error
 }
 
 const boringBtn = document.querySelector(".boring__button")
