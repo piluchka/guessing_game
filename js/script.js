@@ -261,15 +261,53 @@ if (container) {
 // ----------------------------------------------------
 
 // Dice logic
-const diceCont = document.querySelector(".dice")
 
-// Adding dices
-const addBtn = document.getElementById("addDice")
+const diceContainer = document.getElementById("diceContainer")
 
-if (diceCont && addBtn) {
-  addBtn.addEventListener("click", () => addDice(diceCont))
+// Click events
+if (diceContainer) {
+  diceContainer.addEventListener("click", (e) => {
+    const diceCont = document.querySelector(".dice")
+
+    // Adding dice
+    if (e.target.id === "addDice") {
+      if (diceCont.classList.contains("throwing")) {
+        return
+      } else {
+        addDice(diceCont)
+      }
+    }
+
+    // Removing dice
+    if (e.target.id === "removeDice") {
+      if (diceCont.classList.contains("throwing")) {
+        return
+      } else {
+        removeDice(diceCont)
+      }
+    }
+
+    // Fast-throw feature
+    if (e.target.id === "fastThrow") {
+      if (diceCont.classList.contains("throwing")) {
+        return
+      } else {
+        diceGameLogic(paths, 1000)
+      }
+    }
+
+    // Default throw
+    if (e.target.id === "diceThrow") {
+      if (diceCont.classList.contains("throwing")) {
+        return
+      } else {
+        diceGameLogic(paths)
+      }
+    }
+  })
 }
 
+// Adding dices function
 function addDice(diceCont) {
   if (diceCont.children.length < 20) {
     const dice = document.createElementNS("http://www.w3.org/2000/svg", "svg")
@@ -289,13 +327,7 @@ function addDice(diceCont) {
   }
 }
 
-// Removing dices
-const removeBtn = document.getElementById("removeDice")
-
-if (diceCont && removeBtn) {
-  removeBtn.addEventListener("click", () => removeDice(diceCont))
-}
-
+// Removing dices function
 function removeDice(diceCont) {
   const diceChildrendArr = diceCont.children
   if (diceChildrendArr.length <= 1) {
@@ -305,6 +337,7 @@ function removeDice(diceCont) {
   diceCont.removeChild(diceCont.lastElementChild)
 }
 
+// Paths object for paths elements
 const paths = {
   1: "M3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3H3zm5 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z",
   2: "M0 3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3zm5.5 1a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0zm6.5 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z",
@@ -318,10 +351,12 @@ const paths = {
 function diceGameLogic(paths, speed = 3000) {
   const pathsArr = document.getElementsByClassName("path")
   const displaySum = document.querySelector(".dice__result")
+  const diceCont = document.querySelector(".dice")
 
   const endValues = []
 
   if (pathsArr.length) {
+    diceCont.classList.add("throwing")
     // Loop for getting a path for each path elem in markup
     for (let i = 0; i < pathsArr.length; i++) {
       displaySum.innerText = "Process..."
@@ -344,25 +379,10 @@ function diceGameLogic(paths, speed = 3000) {
         }
 
         displaySum.innerText = endValues.reduce((value, num) => value + parseInt(num), 0)
+        diceCont.classList.remove("throwing")
       }, speed + 1)
     }
   }
-}
-
-// Throw dice event
-const diceBtn = document.querySelector(".dice__button")
-
-if (diceBtn) {
-  diceBtn.addEventListener("click", () => {
-    diceGameLogic(paths)
-  })
-}
-
-// Throw dice fast event
-const fastThrowBtn = document.getElementById("fastThrow")
-
-if (fastThrowBtn) {
-  fastThrowBtn.addEventListener("click", () => diceGameLogic(paths, 1000))
 }
 
 // ----------------------------------------------------
