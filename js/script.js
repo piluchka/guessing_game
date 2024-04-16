@@ -389,7 +389,7 @@ function diceGameLogic(paths, speed = 3000) {
 
 // Boring logic
 
-const site = "http://www.boredapi.com/api/activity?"
+const site = "https://www.boredapi.com/api/activity?"
 
 async function getInfo(site) {
   try {
