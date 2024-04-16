@@ -515,6 +515,22 @@ address {
           align-items: center;
   gap: 6.25rem;
 }
+@media (max-width: 48em) {
+  .boring {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    text-align: center;
+    gap: 4.375rem;
+  }
+}
 .boring__active {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -524,6 +540,15 @@ address {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 5rem;
+}
+@media (max-width: 48em) {
+  .boring__active {
+    -ms-flex-item-align: stretch;
+        align-self: stretch;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 .boring__title {
   font-size: 1.625rem;
@@ -563,6 +588,12 @@ address {
           transform: translate(2px, 3px);
   -webkit-box-shadow: 1px 1px 1px black;
           box-shadow: 1px 1px 1px black;
+}
+@media (max-width: 48em) {
+  .boring__button {
+    -ms-flex-item-align: stretch;
+        align-self: stretch;
+  }
 }
 .result-boring {
   display: -webkit-box;

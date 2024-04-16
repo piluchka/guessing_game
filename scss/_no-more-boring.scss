@@ -29,10 +29,23 @@
   align-items: center;
   gap: toREM(100);
 
+  @media (max-width: toEM(768)) {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: stretch;
+    text-align: center;
+    gap: toREM(70);
+  }
+
   &__active {
     display: flex;
     flex-direction: column;
     gap: toREM(80);
+
+    @media (max-width: toEM(768)) {
+      align-self: stretch;
+      align-items: center;
+    }
   }
 
   &__title {
@@ -72,6 +85,10 @@
       transform: translate(2px, 3px);
       box-shadow: 1px 1px 1px black;
     }
+
+    @media (max-width: toEM(768)) {
+      align-self: stretch;
+    }
   }
 
   &__result {
@@ -94,7 +111,6 @@
 
   &__item {
     font-size: toREM(26);
-    // text-decoration: underline;
 
     span {
       font-weight: 500;
