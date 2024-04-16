@@ -449,6 +449,13 @@ address {
     max-width: 11.25rem;
   }
 }
+.dice__result {
+  font-size: 2.5rem;
+  padding: 1.25rem;
+  background-color: rgba(90, 143, 213, 0.466);
+  border-radius: 1.25rem;
+  text-align: center;
+}
 .dice__button {
   color: #fff;
   background-color: #d3d55a;

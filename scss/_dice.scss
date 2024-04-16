@@ -56,6 +56,15 @@
       max-width: toREM(180);
     }
   }
+
+  &__result {
+    font-size: toREM(40);
+    padding: toREM(20);
+    background-color: rgba(90, 143, 213, 0.466);
+    border-radius: toREM(20);
+    text-align: center;
+  }
+
   &__button {
     color: #fff;
     background-color: #d3d55a;
